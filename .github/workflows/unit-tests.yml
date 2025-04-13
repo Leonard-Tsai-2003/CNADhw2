@@ -25,14 +25,14 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pytest pytest-cov codecov
+        pip install -e math_cli_app/
         
     - name: Run tests with pytest
-      working-directory: math_cli_app
       run: |
-        python -m pytest unit_test/ --cov=. --cov-report=xml -v
+        pytest math_cli_app/unit_test/ --cov=math_cli_app --cov-report=xml -v
         
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
       with:
-        file: ./math_cli_app/coverage.xml
+        file: coverage.xml
         fail_ci_if_error: true 

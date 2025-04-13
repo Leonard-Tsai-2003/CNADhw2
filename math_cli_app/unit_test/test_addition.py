@@ -1,10 +1,4 @@
 import pytest
-import sys
-import os
-
-# Add the parent directory to the Python path
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
 from addition import add_numbers
 
 def test_add_positive_numbers():
