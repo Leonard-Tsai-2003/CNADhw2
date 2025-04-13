@@ -1,5 +1,5 @@
 import pytest
-from factorial import calculate_factorial
+from math_cli_app.factorial import calculate_factorial
 
 def test_factorial_positive_numbers():
     assert calculate_factorial(1) == 1
