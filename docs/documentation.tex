@@ -1,0 +1,183 @@
+% !TeX encoding = UTF-8
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{fontawesome}
+\usepackage{longtable} % For tables that can span multiple pages
+\usepackage{geometry}
+\usepackage{booktabs}
+% \renewcommand\thesubsection{\alph{subsection}.} % Set subsection numbering to use letters
+
+\usepackage{geometry}
+\geometry{margin=1in} % Set margin
+
+\usepackage{hyperref}
+\usepackage{pythonhighlight}
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny,
+    stepnumber=1,
+    tabsize=2,
+    showspaces=false,
+    showstringspaces=false
+}
+
+
+\usepackage{hyperref}
+\usepackage[capitalize]{cleveref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+}
+% for Chinese
+\usepackage{fontspec}               		% 加這個就可以設定字體
+\usepackage[BoldFont, SlantFont]{xeCJK} 
+
+\begin{document}
+\title{Spring 2025 Cloud Native Application Development HW2 \\ Report}
+\author{Leonard Tsai B10705010}
+\date{\today}
+
+\maketitle
+\section{Project Overview}
+The Math CLI Application is a command-line interface tool that provides basic mathematical operations. The application is built with Python and follows modern software development practices including unit testing, continuous integration, and code coverage analysis.
+
+\section{Technical Framework}
+\subsection{Development Environment}
+\begin{itemize}
+    \item Python 3.8+
+    \item pytest for unit testing
+    \item GitHub Actions for CI/CD
+    \item Codecov for code coverage reporting
+\end{itemize}
+
+\subsection{Project Structure}
+\begin{verbatim}
+math_cli_app/
+├── math_cli_app/
+│   ├── __init__.py
+│   ├── addition.py
+│   ├── factorial.py
+│   ├── odd_even.py
+│   └── main.py
+├── unit_test/
+│   ├── __init__.py
+│   ├── test_addition.py
+│   ├── test_factorial.py
+│   └── test_odd_even.py
+├── setup.py
+└── requirements.txt
+\end{verbatim}
+
+\section{Core Functions}
+\subsection{Addition Function}
+\begin{lstlisting}[language=Python]
+def add_numbers(a: float, b: float) -> float:
+    """Add two numbers together."""
+    return a + b
+\end{lstlisting}
+Features:
+\begin{itemize}
+    \item Supports floating-point numbers
+    \item Handles positive and negative numbers
+    \item Returns sum as float
+\end{itemize}
+
+\subsection{Factorial Function}
+\begin{lstlisting}[language=Python]
+def calculate_factorial(n: int) -> int:
+    """Calculate factorial of a non-negative integer."""
+    if n < 0:
+        raise ValueError("Factorial not defined for negative numbers")
+    if n == 0 or n == 1:
+        return 1
+    return n * calculate_factorial(n - 1)
+\end{lstlisting}
+Features:
+\begin{itemize}
+    \item Handles non-negative integers
+    \item Raises ValueError for negative inputs
+    \item Optimized for n = 0 and n = 1
+\end{itemize}
+
+\subsection{Odd/Even Function}
+\begin{lstlisting}[language=Python]
+def check_odd_even(n: int) -> str:
+    """Check if a number is odd or even."""
+    return "Even" if n % 2 == 0 else "Odd"
+\end{lstlisting}
+Features:
+\begin{itemize}
+    \item Works with integers
+    \item Returns "Even" or "Odd" as string
+    \item Handles negative numbers
+\end{itemize}
+
+\section{Testing Framework}
+\subsection{Unit Tests}
+The project includes comprehensive unit tests for all functions:
+\begin{itemize}
+    \item Addition tests: positive numbers, negative numbers, zero, floats
+    \item Factorial tests: positive integers, zero, error cases
+    \item Odd/Even tests: positive/negative integers, zero
+\end{itemize}
+
+\subsection{Continuous Integration}
+GitHub Actions workflow includes:
+\begin{itemize}
+    \item Automated testing on Python 3.8, 3.9, and 3.10
+    \item Code coverage reporting
+    \item Integration with Codecov
+\end{itemize}
+
+\section{Issues and Feature Requests}
+\subsection{Current Issues}
+\begin{enumerate}
+    \item Initial setup of unit tests
+    \item Integration of code coverage reporting
+    \item Implementation of CI/CD pipeline
+\end{enumerate}
+
+\subsection{Implemented Solutions}
+\begin{enumerate}
+    \item Created comprehensive test suite
+    \item Configured GitHub Actions workflow
+    \item Set up Codecov integration
+\end{enumerate}
+
+\section{Future Enhancements}
+\begin{itemize}
+    \item Additional mathematical functions
+    \item Enhanced error handling
+    \item Performance optimizations
+    \item User interface improvements
+\end{itemize}
+
+\section{Security Considerations}
+\begin{itemize}
+    \item Input validation for all functions
+    \item Error handling for edge cases
+    \item Secure CI/CD pipeline configuration
+\end{itemize}
+
+
+\end{document}
