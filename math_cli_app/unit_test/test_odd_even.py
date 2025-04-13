@@ -1,5 +1,5 @@
 import pytest
-from ..odd_even import check_odd_even
+from math_cli_app.odd_even import check_odd_even
 
 def test_odd_numbers():
     assert check_odd_even(1) == "Odd"
