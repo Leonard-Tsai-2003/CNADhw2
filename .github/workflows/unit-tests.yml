@@ -23,14 +23,13 @@ jobs:
         
     - name: Install dependencies
       run: |
-        cd math_cli_app
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install pytest pytest-cov codecov
         
     - name: Run tests with pytest
+      working-directory: math_cli_app
       run: |
-        cd math_cli_app
-        python -m pytest unit_test/ --cov=. --cov-report=xml
+        python -m pytest unit_test/ --cov=. --cov-report=xml -v
         
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3

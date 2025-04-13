@@ -1,5 +1,11 @@
 import pytest
-from ..odd_even import check_odd_even
+import sys
+import os
+
+# Add the parent directory to the Python path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from odd_even import check_odd_even
 
 def test_odd_numbers():
     assert check_odd_even(1) == "Odd"
